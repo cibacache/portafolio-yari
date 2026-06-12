@@ -5,12 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Portafolio Profesional</title>
     <style>
-        /* --- VARIABLES Y CONFIGURACIÓN BASE --- */
         :root {
-            --color-principal: #FFFFFF;
-            --color-secundario: #000000;
-            --color-neutro: #F4F4F4;
-            --color-acento: #FF0055;
+            --color-principal: #ffffff;
+            --color-secundario: #101010;
+            --color-neutro: #f4f4f4;
+            --color-acento: #ff0055;
         }
 
         * {
@@ -20,26 +19,25 @@
         }
 
         html {
-            scroll-behavior: smooth; 
+            scroll-behavior: smooth;
             font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
             background-color: var(--color-principal);
             color: var(--color-secundario);
         }
 
         body {
-            line-height: 1.2;
+            line-height: 1.4;
         }
 
-        /* --- ENCABEZADO Y MENÚ FIJO --- */
         header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             background-color: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
             z-index: 1000;
-            padding: 20px 50px;
+            padding: 18px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -47,7 +45,7 @@
 
         .logo {
             font-weight: 800;
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             text-transform: uppercase;
             letter-spacing: 1px;
             text-decoration: none;
@@ -62,9 +60,9 @@
             text-decoration: none;
             color: var(--color-secundario);
             font-weight: 700;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             text-transform: uppercase;
-            margin-left: 25px;
+            margin-left: 24px;
             transition: color 0.3s ease;
         }
 
@@ -72,35 +70,33 @@
             color: var(--color-acento);
         }
 
-        /* --- SECCIONES (ESTILOS GENERALES) --- */
         section {
-            padding: 120px 50px 80px 50px;
+            padding: 120px 50px 80px;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            position: relative;
         }
 
         .titulo-seccion {
-            font-size: 2.5rem;
+            font-size: 2.3rem;
             text-transform: uppercase;
             font-weight: 800;
             margin-bottom: 30px;
             letter-spacing: 1px;
         }
 
-        /* --- 1. SECCIÓN: INICIO (CON VIDEO DE YOUTUBE EN FONDO) --- */
         #inicio {
             position: relative;
+            min-height: 100vh;
             overflow: hidden;
-            color: white;
-            text-align: center;
+            display: flex;
             align-items: center;
             justify-content: center;
+            text-align: center;
+            color: white;
         }
 
-        /* Contenedor del video que fuerza la proporción y lo estira al fondo */
         .contenedor-video-youtube {
             position: absolute;
             top: 0;
@@ -108,17 +104,17 @@
             width: 100%;
             height: 100%;
             z-index: 1;
-            pointer-events: none; /* Evita que el usuario haga clic o pause el video accidentalmente */
+            pointer-events: none;
         }
 
         .contenedor-video-youtube iframe {
             position: absolute;
             top: 50%;
             left: 50%;
-            width: 100vw;
-            height: 56.25vw; /* Proporción 16:9 ideal para pantallas panorámicas */
-            min-height: 100vh;
-            min-width: 177.77vh; /* Ajuste proporcional para pantallas altas */
+            width: 177.77vh;
+            height: 100vh;
+            min-width: 100%;
+            min-height: 100%;
             transform: translate(-50%, -50%);
         }
 
@@ -135,13 +131,14 @@
         .contenido-hero {
             position: relative;
             z-index: 3;
+            max-width: 920px;
+            padding: 0 20px;
         }
 
         #inicio h1 {
-            font-size: 5rem;
-            font-weight: 900;
+            font-size: 4rem;
+            font-weight: 700;
             letter-spacing: 5px;
-            font-weight: 300; /* ◄ AGREGA ESTO para un subtítulo más fino */
         }
 
         #inicio h1 span {
@@ -149,162 +146,151 @@
         }
 
         #inicio p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             text-transform: uppercase;
             font-weight: 400;
             letter-spacing: 2px;
-            margin-top: 10px;
-        }
-
-        /* --- 2. SECCIÓN: PROYECTOS --- */
-        #proyectos {
-            background-color: var(--color-neutro);
+            margin-top: 18px;
         }
 
         .grid-proyectos {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            gap: 24px;
             margin-top: 20px;
         }
 
         .tarjeta-proyecto {
             background-color: var(--color-principal);
-            border-radius: 6px;
+            border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease;
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.06);
         }
 
-        .tarjeta-proyecto:hover {
-            transform: translateY(-5px);
-        }
-
-        .proyecto-visual {
+        .video-responsive {
+            position: relative;
             width: 100%;
-            height: 220px;
-            background-color: #ddd;
-            background-size: cover;
-            background-position: center;
+            padding-bottom: 56.25%;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .video-responsive iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
         }
 
         .proyecto-info {
-            padding: 25px;
-        }
-
-        .proyecto-info p {
-            font-weight: 100;
-            text-align: justify;
+            padding: 22px;
         }
 
         .proyecto-info h3 {
-            font-size: 1.2rem;
+            font-size: 1.15rem;
+            font-weight: 800;
+            margin-bottom: 12px;
             text-transform: uppercase;
-            margin-bottom: 10px;
-           
         }
 
-        /* --- 3. SECCIÓN: SOBRE MÍ --- */
-        #sobre-mi {
-            background-color: var(--color-principal);
+        .proyecto-info p {
+            font-weight: 300;
+            line-height: 1.75;
+            color: #444;
         }
 
         #sobre-mi p {
             text-align: justify;
+            line-height: 1.8;
         }
 
         .contenedor-sobre-mi {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 50px;
+            gap: 40px;
             align-items: center;
-        }
-
-        .foto-perfil-placeholder {
-            width: 100%;
-            height: 450px;
-            background-color: #eee;
-            border-radius: 4px;
-            background-image: url('fondo-banner.jpg');
-            background-size: cover;
-            background-position: center;
         }
 
         .carrusel-sobre-mi {
             position: relative;
             width: 100%;
-            height: 450px;
+            aspect-ratio: 4 / 3;
             overflow: hidden;
-            border-radius: 8px;
-            background-color: #111;
+            border-radius: 14px;
+            background-color: #f4f4f4;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.18);
         }
 
         .slider-track {
+            position: relative;
             display: flex;
-            width: 500%;
+            width: 100%;
             height: 100%;
-            transition: transform 0.8s ease;
+            animation: slide-photos 30s ease-in-out infinite;
         }
 
         .slide {
+            position: relative;
             min-width: 100%;
-            height: 100%;
-            flex: 0 0 100%;
+            flex-shrink: 0;
             display: flex;
             align-items: center;
             justify-content: center;
-            overflow: hidden;
+            aspect-ratio: 4 / 3;
+            background-color: #f4f4f4;
         }
 
         .slide img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             display: block;
         }
 
-        .carrusel-sobre-mi::before,
-        .carrusel-sobre-mi::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            width: 80px;
-            height: 100%;
-            z-index: 2;
-            pointer-events: none;
+        .carrusel-sobre-mi:hover .slider-track {
+            animation-play-state: paused;
         }
 
-        .carrusel-sobre-mi::before {
-            left: 0;
-            background: linear-gradient(to right, rgba(17,17,17,1), rgba(17,17,17,0));
-        }
-
-        .carrusel-sobre-mi::after {
-            right: 0;
-            background: linear-gradient(to left, rgba(17,17,17,1), rgba(17,17,17,0));
+        @keyframes slide-photos {
+            0%, 13.333% {
+                transform: translateX(0);
+            }
+            16.666%, 30% {
+                transform: translateX(-100%);
+            }
+            33.333%, 46.666% {
+                transform: translateX(-200%);
+            }
+            50%, 63.333% {
+                transform: translateX(-300%);
+            }
+            66.666%, 80% {
+                transform: translateX(-400%);
+            }
+            83.333%, 100% {
+                transform: translateX(-500%);
+            }
         }
 
         .btn-cv {
             display: inline-block;
-            margin-top: 25px;
-            padding: 12px 30px;
+            margin-top: 20px;
+            padding: 14px 30px;
             background-color: var(--color-secundario);
             color: var(--color-principal);
             text-decoration: none;
             font-weight: 700;
             text-transform: uppercase;
-            font-size: 0.85rem;
             letter-spacing: 1px;
-            border: 2px solid var(--color-secundario);
-            transition: all 0.3s ease;
+            transition: background-color 0.3s ease;
         }
 
         .btn-cv:hover {
-            background-color: transparent;
-            color: var(--color-secundario);
+            background-color: var(--color-acento);
         }
 
-        /* --- 4. SECCIÓN: CONTACTO --- */
         #contacto {
             background-color: var(--color-secundario);
             color: var(--color-principal);
@@ -323,81 +309,68 @@
             text-decoration: underline;
         }
 
-        .formulario-contacto {
-            max-width: 600px;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .formulario-contacto input, .formulario-contacto textarea {
-            width: 100%;
-            padding: 15px;
-            background-color: #222;
-            border: 1px solid #444;
-            color: white;
-            font-family: inherit;
-        }
-
-        .formulario-contacto button {
-            padding: 15px;
-            background-color: var(--color-acento);
-            color: white;
-            border: none;
-            font-weight: 700;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: opacity 0.3s;
-        }
-
-        /* --- DISEÑO RESPONSIVO (MÓVILES) --- */
         @media (max-width: 768px) {
-            header { padding: 20px; flex-direction: column; gap: 15px; }
-            nav a { margin: 0 10px; font-size: 0.8rem; }
-            #inicio h1 { font-size: 3rem; }
-            .contenedor-sobre-mi { grid-template-columns: 1fr; }
-            section { padding: 140px 20px 60px 20px; }
+            header {
+                padding: 18px 20px;
+                flex-direction: column;
+                gap: 14px;
+            }
+
+            nav a {
+                margin: 0 10px;
+                font-size: 0.8rem;
+            }
+
+            section {
+                padding: 120px 20px 60px;
+            }
+
+            .contenedor-sobre-mi {
+                grid-template-columns: 1fr;
+            }
+
+            #inicio h1 {
+                font-size: 2.8rem;
+            }
         }
     </style>
-
+</head>
+<body>
     <header>
         <a href="#inicio" class="logo">YARITZA MONDACA<span>.</span></a>
         <nav>
-            <a href="#inicio">INICIO</a>
-            <a href="#proyectos">PROYECTOS</a>
-            <a href="#sobre-mi">SOBRE MÍ</a>
-            <a href="#contacto">CONTACTO</a>
+            <a href="#inicio">Inicio</a>
+            <a href="#proyectos">Proyectos</a>
+            <a href="#sobre-mi">Sobre mí</a>
+            <a href="#contacto">Contacto</a>
         </nav>
     </header>
 
     <section id="inicio">
         <div class="contenedor-video-youtube">
-            <iframe src="https://www.youtube.com/embed/4pi-T4LH3cc?autoplay=1&mute=1&loop=1&playlist=4pi-T4LH3cc&controls=0&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3" 
-                    frameborder="0" 
-                    allow="autoplay; encrypted-media" 
-                    allowfullscreen>
-            </iframe>
+            <iframe src="https://www.youtube.com/embed/4pi-T4LH3cc?autoplay=1&mute=1&loop=1&playlist=4pi-T4LH3cc&controls=0&rel=0&modestbranding=1&iv_load_policy=3"
+                    allow="autoplay; encrypted-media"
+                    allowfullscreen></iframe>
         </div>
-        
         <div class="filtro-oscuro"></div>
         <div class="contenido-hero">
             <h1>PORTAFOLIO<span>.</span></h1>
-            <p>Contenido audiovisual y fotografia con enfoque en la divulgación del conocimiento</p>
+            <p>Contenido audiovisual y fotografía con enfoque en la divulgación del conocimiento</p>
         </div>
     </section>
 
     <section id="proyectos">
         <h2 class="titulo-seccion">Proyectos destacados</h2>
-        <div class="video-responsive">
+        <div class="grid-proyectos">
+            <div class="tarjeta-proyecto">
+                <div class="video-responsive">
                     <iframe src="https://www.youtube.com/embed/BrDQabOUr4E" allowfullscreen></iframe>
                 </div>
                 <div class="proyecto-info">
                     <h3>Teoría de Lycal Radio</h3>
-                    <p>Dirección, locución y montaje audiovisual del podcast La Teoría de Lycal Radio, espacio de conversación sobre el desarrollo científico tecnológico de la Universidad de La Serena, emitido en la Radio Userena y @divulgacionuserena en YouTube.</p>
+                    <p>Dirección, locución y montaje audiovisual del podcast La Teoría de Lycal Radio.</p>
                 </div>
             </div>
-
             <div class="tarjeta-proyecto">
                 <div class="video-responsive">
                     <iframe src="https://www.youtube.com/embed/2t5Kt0qk4ow" allowfullscreen></iframe>
@@ -407,7 +380,6 @@
                     <p>Locución y montaje audiovisual del audiolibro.</p>
                 </div>
             </div>
-
             <div class="tarjeta-proyecto">
                 <div class="video-responsive">
                     <iframe src="https://www.youtube.com/embed/A7o6tiGTN14" allowfullscreen></iframe>
@@ -415,55 +387,33 @@
                 <div class="proyecto-info">
                     <h3>Nivel Curioso CL</h3>
                     <p>Creadora del canal de datos curiosos con enfoque en la divulgación del conocimiento.</p>
-             
-    </section>
-
-    <section id="sobre-mi">
-        <h2 class="titulo-seccion">Sobre Mí</h2>
-        <div class="contenedor-sobre-mi">
-            <div>
-                <p style="font-size: 1.2rem; font-weight: 300; margin-bottom: 15px;">Periodista y Especialista en Generación de Contenidos Audiovisuales.</p>
-                <p>Me dedico a la creación de contenido audiovisual y fotografía con un enfoque en la divulgación del conocimiento. Mi objetivo es transformar ideas y conceptos complejos en relatos narrativos visuales potentes y atractivos.</p>
-                <br>
-                <p>Cuento con más de 10 años de experiencia en generación de contenidos audiovisuales para medios digitales. Manejo en redacción periodista, comunicación cientifica, escritura creativa, redacción y escritura de guión audiovisual, locución, manejo de equipos audiovisuales como cámaras y micrófonos, manejo avanzado de programas de edición de video, fotografía y animación, conocimiento básico de programas de audio y diseño.</p>
-                <a href="curriculum.pdf" target="_blank" class="btn-cv">Descargar Currículum (PDF)</a>
-            </div>
-            <div class="carrusel-sobre-mi">
-                <div class="slider-track" id="slider-sobre-mi">
-                    <div class="slide"><img src="foto1.png" alt="Imagen sobre mí 1"></div>
-                    <div class="slide"><img src="foto2.jpg" alt="Imagen sobre mí 2"></div>
-                    <div class="slide"><img src="foto3.JPG" alt="Imagen sobre mí 3"></div>
-                    <div class="slide"><img src="foto4.jpg" alt="Imagen sobre mí 4"></div>
-                    <div class="slide"><img src="foto5.jpg" alt="Imagen sobre mí 5"></div>
                 </div>
             </div>
         </div>
-    </section>
 
+    <section id="sobre-mi">
+        <h2 class="titulo-seccion">Sobre mí</h2>
+        <div class="contenedor-sobre-mi">
+            <div>
+                <p style="font-size: 1.2rem; font-weight: 300; margin-bottom: 15px;">Periodista y especialista en generación de contenidos audiovisuales.</p>
+                <p>Me dedico a la creación de contenido audiovisual y fotografía con un enfoque en la divulgación del conocimiento. Mi objetivo es transformar ideas y conceptos complejos en relatos narrativos visuales potentes y atractivos.</p>
+                <p style="margin-top: 18px;">Cuento con más de 10 años de experiencia en generación de contenidos audiovisuales para medios digitales. Manejo redacción periodística, comunicación científica, escritura creativa, guión audiovisual, locución, equipos audiovisuales y edición de video.</p>
+                <a href="curriculum.pdf" target="_blank" class="btn-cv">Descargar Currículum (PDF)</a>
+            </div>
+            <div class="carrusel-sobre-mi">
+                <div class="slider-track">
+                    <div class="slide"><img src="foto1.png" alt="Fotografía 1"></div>
+                    <div class="slide"><img src="foto2.jpg" alt="Fotografía 2"></div>
+                    <div class="slide"><img src="foto3.jpg" alt="Fotografía 3"></div>
+                    <div class="slide"><img src="foto4.jpg" alt="Fotografía 4"></div>
+                    <div class="slide"><img src="foto5.jpg" alt="Fotografía 5"></div>
+                    <div class="slide"><img src="foto6.jpg" alt="Fotografía 6"></div>
+                </div>
+            </div>
+        </div>
     <section id="contacto">
-       <footer class="footer-contacto">
-        <h2>Contacto</h2>
-        <p style="font-size: 1.4rem; color: #fff; margin-bottom: 15px;">Yaritza Mondaca Rodríguez</p>
-        <p>Correo: <a href="mailto:ymondaca1@gmail.com">ymondaca1@gmail.com</a></p>
-        <p>Instagram: <a href="https://instagram.com/ymondaca_1" target="_blank">@ymondaca_1</a></p>
-    </footer>
-
-    <script>
-        (function() {
-            const track = document.getElementById('slider-sobre-mi');
-            const totalSlides = track ? track.children.length : 0;
-            let currentIndex = 0;
-
-            function nextSlide() {
-                if (!track) return;
-                currentIndex = (currentIndex + 1) % totalSlides;
-                track.style.transform = `translateX(-${currentIndex * 100}%)`;
-            }
-
-            if (totalSlides > 1) {
-                setInterval(nextSlide, 5000);
-            }
-        })();
-    </script>
-</body>
-</html>
+        <div class="footer-contacto">
+            <h2 class="titulo-seccion" style="color: white;">Contacto</h2>
+            <p style="font-size: 1.2rem; color: #fff; margin-bottom: 12px;">Yaritza Mondaca Rodríguez</p>
+            <p>Correo: <a href="mailto:ymondaca1@gmail.com">ymondaca1@gmail.com</a></p>
+            <p>Instagram: <a href="https://instagram.com/ymondaca_1" target="_blank">@ymondaca_1</a></p>
