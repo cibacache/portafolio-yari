@@ -401,6 +401,8 @@
                 <p style="margin-top: 18px;">Cuento con más de 10 años de experiencia en generación de contenidos audiovisuales para medios digitales. Manejo redacción periodística, comunicación científica, escritura creativa, guión audiovisual, locución, equipos audiovisuales y edición de video.</p>
                 <a href="curriculum.pdf" target="_blank" class="btn-cv">Descargar Currículum (PDF)</a>
             </div>
+
+            
             <div class="carrusel-sobre-mi">
                 <div class="slider-track">
                     <div class="slide"><img src="foto1.png" alt="Fotografía 1"></div>
