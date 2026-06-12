@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -389,6 +390,7 @@
                 </div>
             </div>
         </div>
+    </section>
 
     <section id="sobre-mi">
         <h2 class="titulo-seccion">Sobre mí</h2>
@@ -410,6 +412,8 @@
                 </div>
             </div>
         </div>
+    </section>
+
     <section id="contacto">
         <div class="footer-contacto">
             <h2 class="titulo-seccion" style="color: white;">Contacto</h2>
