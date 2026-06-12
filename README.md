@@ -1,5 +1,3 @@
-# ymondaca1.github.io
-Portafolio profesional 
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -362,8 +360,6 @@ Portafolio profesional
             section { padding: 140px 20px 60px 20px; }
         }
     </style>
-</head>
-<body>
 
     <header>
         <a href="#inicio" class="logo">YARITZA MONDACA<span>.</span></a>
@@ -419,7 +415,7 @@ Portafolio profesional
                 <div class="proyecto-info">
                     <h3>Nivel Curioso CL</h3>
                     <p>Creadora del canal de datos curiosos con enfoque en la divulgación del conocimiento.</p>
-                </div>
+             
     </section>
 
     <section id="sobre-mi">
