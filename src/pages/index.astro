@@ -1,5 +1,5 @@
 ---
-const title = "Mi Portafolio Profesional - Yaritza Mondaca";
+const title = "Yaritza Mondaca | Contenido Audiovisual & Divulgación";
 ---
 
 <!DOCTYPE html>
@@ -8,12 +8,29 @@ const title = "Mi Portafolio Profesional - Yaritza Mondaca";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --color-principal: #ffffff;
-            --color-secundario: #101010;
-            --color-neutro: #f4f4f4;
-            --color-acento: #ff0055;
+            --zinc-950: #09090b;
+            --zinc-900: #18181b;
+            --zinc-800: #27272a;
+            --zinc-700: #3f3f46;
+            --zinc-600: #52525b;
+            --zinc-400: #a1a1aa;
+            --zinc-300: #d4d4d8;
+            --zinc-100: #f4f4f5;
+            --zinc-50: #fafafa;
+            
+            --emerald-500: #10b981;
+            --emerald-400: #34d399;
+            
+            --font-sans: 'Geist', -apple-system, system-ui, sans-serif;
+            --font-mono: 'Geist Mono', 'JetBrains Mono', monospace;
+            
+            --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+            --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
         }
 
         * {
@@ -24,84 +41,106 @@ const title = "Mi Portafolio Profesional - Yaritza Mondaca";
 
         html {
             scroll-behavior: smooth;
-            font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
-            background-color: var(--color-principal);
-            color: var(--color-secundario);
+            background-color: var(--zinc-950);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         body {
-            line-height: 1.4;
+            font-family: var(--font-sans);
+            color: var(--zinc-100);
+            line-height: 1.6;
+            background: var(--zinc-950);
         }
 
+        /* Header con glassmorphism refinado */
         header {
             position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
-            background-color: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            right: 0;
             z-index: 1000;
-            padding: 18px 40px;
+            padding: 1.25rem 2rem;
+            background: rgba(9, 9, 11, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(39, 39, 42, 0.5);
+            transition: all 180ms var(--ease-out);
+        }
+
+        header.scrolled {
+            padding: 0.875rem 2rem;
+            background: rgba(9, 9, 11, 0.95);
+            border-bottom-color: rgba(39, 39, 42, 0.8);
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .logo {
-            font-weight: 800;
-            font-size: 1.4rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            font-weight: 600;
+            font-size: 1.125rem;
+            letter-spacing: -0.02em;
+            color: var(--zinc-50);
             text-decoration: none;
-            color: var(--color-secundario);
+            transition: color 160ms var(--ease-out);
         }
 
-        .logo span {
-            color: var(--color-acento);
+        .logo:hover {
+            color: var(--emerald-400);
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
         }
 
         nav a {
+            font-size: 0.9375rem;
+            font-weight: 500;
+            color: var(--zinc-400);
             text-decoration: none;
-            color: var(--color-secundario);
-            font-weight: 700;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            margin-left: 24px;
-            transition: color 0.3s ease;
+            letter-spacing: -0.01em;
+            transition: color 160ms var(--ease-out);
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -0.25rem;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--emerald-400);
+            transition: width 200ms var(--ease-out);
         }
 
         nav a:hover {
-            color: var(--color-acento);
+            color: var(--zinc-100);
         }
 
-        section {
-            padding: 120px 50px 80px;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+        nav a:hover::after {
+            width: 100%;
         }
 
-        .titulo-seccion {
-            font-size: 2.3rem;
-            text-transform: uppercase;
-            font-weight: 800;
-            margin-bottom: 30px;
-            letter-spacing: 1px;
-        }
-
+        /* Hero Section */
         #inicio {
             position: relative;
-            min-height: 100vh;
-            overflow: hidden;
+            min-height: 100dvh;
             display: flex;
             align-items: center;
             justify-content: center;
-            text-align: center;
-            color: white;
+            overflow: hidden;
+            background: var(--zinc-950);
         }
 
-        .contenedor-video-youtube {
+        .video-background {
             position: absolute;
             top: 0;
             left: 0;
@@ -111,7 +150,18 @@ const title = "Mi Portafolio Profesional - Yaritza Mondaca";
             pointer-events: none;
         }
 
-        .contenedor-video-youtube iframe {
+        .video-background::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, 
+                rgba(9, 9, 11, 0.4) 0%, 
+                rgba(9, 9, 11, 0.7) 50%,
+                rgba(9, 9, 11, 0.9) 100%);
+            z-index: 2;
+        }
+
+        .video-background iframe {
             position: absolute;
             top: 50%;
             left: 50%;
@@ -120,312 +170,446 @@ const title = "Mi Portafolio Profesional - Yaritza Mondaca";
             min-width: 100%;
             min-height: 100%;
             transform: translate(-50%, -50%);
+            opacity: 0.5;
         }
 
-        .filtro-oscuro {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.55);
-            z-index: 2;
-        }
-
-        .contenido-hero {
+        .hero-content {
             position: relative;
             z-index: 3;
-            max-width: 920px;
-            padding: 0 20px;
+            max-width: 1200px;
+            padding: 0 2rem;
+            text-align: center;
         }
 
-        #inicio h1 {
-            font-size: 4rem;
-            font-weight: 700;
-            letter-spacing: 5px;
+        .hero-title {
+            font-size: clamp(2.5rem, 8vw, 6rem);
+            font-weight: 600;
+            letter-spacing: -0.04em;
+            line-height: 1;
+            margin-bottom: 1.5rem;
+            color: var(--zinc-50);
         }
 
-        #inicio h1 span {
-            color: var(--color-acento);
-        }
-
-        #inicio p {
-            font-size: 1.1rem;
-            text-transform: uppercase;
+        .hero-subtitle {
+            font-size: clamp(1rem, 2vw, 1.375rem);
             font-weight: 400;
-            letter-spacing: 2px;
-            margin-top: 18px;
+            line-height: 1.5;
+            color: var(--zinc-300);
+            max-width: 65ch;
+            margin: 0 auto;
+            letter-spacing: -0.01em;
         }
 
-        .grid-proyectos {
+        .scroll-indicator {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            width: 1px;
+            height: 60px;
+            background: linear-gradient(180deg, 
+                transparent 0%, 
+                var(--emerald-400) 50%, 
+                transparent 100%);
+            animation: scroll-pulse 2s var(--ease-in-out) infinite;
+        }
+
+        @keyframes scroll-pulse {
+            0%, 100% { opacity: 0.3; transform: translateX(-50%) translateY(0); }
+            50% { opacity: 1; transform: translateX(-50%) translateY(10px); }
+        }
+
+        /* Sección base */
+        section {
+            padding: 6rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        section:first-of-type {
+            padding-top: 0;
+        }
+
+        .section-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 600;
+            letter-spacing: -0.03em;
+            line-height: 1;
+            margin-bottom: 4rem;
+            color: var(--zinc-50);
+        }
+
+        /* Proyectos Section */
+        #proyectos {
+            background: linear-gradient(180deg, 
+                var(--zinc-950) 0%, 
+                var(--zinc-900) 50%,
+                var(--zinc-950) 100%);
+        }
+
+        .proyectos-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 24px;
-            margin-top: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr));
+            gap: 2.5rem;
         }
 
-        .tarjeta-proyecto {
-            background-color: var(--color-principal);
-            border-radius: 10px;
+        .proyecto-card {
+            background: rgba(39, 39, 42, 0.3);
+            border-radius: 16px;
+            border: 1px solid rgba(63, 63, 70, 0.5);
             overflow: hidden;
-            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.06);
+            transition: all 200ms var(--ease-out);
         }
 
-        .video-responsive {
+        .proyecto-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--emerald-500);
+            box-shadow: 0 24px 48px rgba(16, 185, 129, 0.12);
+        }
+
+        .proyecto-video {
             position: relative;
             width: 100%;
             padding-bottom: 56.25%;
+            background: var(--zinc-900);
             overflow: hidden;
-            background: #000;
         }
 
-        .video-responsive iframe {
+        .proyecto-video iframe {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            border: 0;
+            border: none;
         }
 
         .proyecto-info {
-            padding: 22px;
+            padding: 2rem;
         }
 
-        .proyecto-info h3 {
-            font-size: 1.15rem;
-            font-weight: 800;
-            margin-bottom: 12px;
-            text-transform: uppercase;
+        .proyecto-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.75rem;
+            color: var(--zinc-50);
         }
 
-        .proyecto-info p {
-            font-weight: 300;
-            line-height: 1.75;
-            color: #444;
+        .proyecto-descripcion {
+            font-size: 0.9375rem;
+            line-height: 1.7;
+            color: var(--zinc-400);
+            letter-spacing: -0.01em;
         }
 
-        #sobre-mi p {
-            text-align: justify;
-            line-height: 1.8;
+        /* Sobre mí Section */
+        #sobre-mi {
+            background: var(--zinc-950);
         }
 
-        .contenedor-sobre-mi {
+        .sobre-mi-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: center;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 5rem;
+            align-items: start;
         }
 
-        .carrusel-sobre-mi {
+        .sobre-mi-text p {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--zinc-300);
+            margin-bottom: 1.5rem;
+            max-width: 65ch;
+            letter-spacing: -0.01em;
+        }
+
+        .sobre-mi-text p.highlight {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: var(--zinc-100);
+            margin-bottom: 2rem;
+        }
+
+        .btn-cv {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.875rem 1.75rem;
+            margin-top: 1.5rem;
+            background: var(--emerald-500);
+            color: var(--zinc-950);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9375rem;
+            border-radius: 12px;
+            transition: all 160ms var(--ease-out);
+            border: 1px solid var(--emerald-500);
+        }
+
+        .btn-cv:hover {
+            background: var(--emerald-400);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(16, 185, 129, 0.2);
+        }
+
+        .btn-cv:active {
+            transform: translateY(0) scale(0.98);
+        }
+
+        /* Foto estática (solo foto1) */
+        .profile-photo {
             position: relative;
             width: 100%;
             aspect-ratio: 4 / 3;
+            border-radius: 16px;
             overflow: hidden;
-            border-radius: 14px;
-            background-color: #f4f4f4;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.18);
+            background: var(--zinc-900);
+            border: 1px solid rgba(63, 63, 70, 0.5);
         }
 
-        .slider-track {
-            position: relative;
-            display: flex;
-            width: 100%;
-            height: 100%;
-            animation: slide-photos 30s ease-in-out infinite;
-        }
-
-        .slide {
-            position: relative;
-            min-width: 100%;
-            flex-shrink: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            aspect-ratio: 4 / 3;
-            background-color: #f4f4f4;
-        }
-
-        .slide img {
+        .profile-photo img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             display: block;
         }
 
-        .carrusel-sobre-mi:hover .slider-track {
-            animation-play-state: paused;
-        }
-
-        @keyframes slide-photos {
-            0%, 13.333% {
-                transform: translateX(0);
-            }
-            16.666%, 30% {
-                transform: translateX(-100%);
-            }
-            33.333%, 46.666% {
-                transform: translateX(-200%);
-            }
-            50%, 63.333% {
-                transform: translateX(-300%);
-            }
-            66.666%, 80% {
-                transform: translateX(-400%);
-            }
-            83.333%, 100% {
-                transform: translateX(-500%);
-            }
-        }
-
-        .btn-cv {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 14px 30px;
-            background-color: var(--color-secundario);
-            color: var(--color-principal);
-            text-decoration: none;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: background-color 0.3s ease;
-        }
-
-        .btn-cv:hover {
-            background-color: var(--color-acento);
-        }
-
+        /* Contacto Section */
         #contacto {
-            background-color: var(--color-secundario);
-            color: var(--color-principal);
-        }
-
-        .footer-contacto {
+            background: var(--zinc-900);
+            border-top: 1px solid rgba(63, 63, 70, 0.5);
             text-align: center;
         }
 
-        .footer-contacto a {
-            color: var(--color-acento);
+        .contacto-content h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 600;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+            color: var(--zinc-50);
+        }
+
+        .contacto-nombre {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: var(--zinc-300);
+            margin-bottom: 2rem;
+        }
+
+        .contacto-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            align-items: center;
+        }
+
+        .contacto-link {
+            font-size: 1.0625rem;
+            color: var(--zinc-400);
+        }
+
+        .contacto-link a {
+            color: var(--emerald-400);
             text-decoration: none;
+            font-weight: 500;
+            transition: color 160ms var(--ease-out);
+            position: relative;
         }
 
-        .footer-contacto a:hover {
-            text-decoration: underline;
+        .contacto-link a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--emerald-400);
+            transition: width 200ms var(--ease-out);
         }
 
+        .contacto-link a:hover {
+            color: var(--emerald-300);
+        }
+
+        .contacto-link a:hover::after {
+            width: 100%;
+        }
+
+        .footer-copyright {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(63, 63, 70, 0.3);
+            font-size: 0.875rem;
+            color: var(--zinc-600);
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
-            header {
-                padding: 18px 20px;
+            .header-container {
                 flex-direction: column;
-                gap: 14px;
+                gap: 1rem;
+            }
+
+            nav {
+                gap: 1.5rem;
             }
 
             nav a {
-                margin: 0 10px;
-                font-size: 0.8rem;
+                font-size: 0.875rem;
             }
 
             section {
-                padding: 120px 20px 60px;
+                padding: 4rem 1.5rem;
             }
 
-            .contenedor-sobre-mi {
+            .section-title {
+                margin-bottom: 2.5rem;
+            }
+
+            .hero-title {
+                font-size: clamp(2rem, 10vw, 3rem);
+            }
+
+            .sobre-mi-grid {
                 grid-template-columns: 1fr;
+                gap: 3rem;
             }
 
-            #inicio h1 {
-                font-size: 2.8rem;
+            .proyectos-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <a href="#inicio" class="logo">YARITZA MONDACA<span>.</span></a>
-        <nav>
-            <a href="#inicio">Inicio</a>
-            <a href="#proyectos">Proyectos</a>
-            <a href="#sobre-mi">Sobre mí</a>
-            <a href="#contacto">Contacto</a>
-        </nav>
+    <header id="header">
+        <div class="header-container">
+            <a href="#inicio" class="logo">Yaritza Mondaca</a>
+            <nav>
+                <a href="#inicio">Inicio</a>
+                <a href="#proyectos">Proyectos</a>
+                <a href="#sobre-mi">Sobre mí</a>
+                <a href="#contacto">Contacto</a>
+            </nav>
+        </div>
     </header>
 
     <section id="inicio">
-        <div class="contenedor-video-youtube">
+        <div class="video-background">
             <iframe src="https://www.youtube.com/embed/4pi-T4LH3cc?autoplay=1&mute=1&loop=1&playlist=4pi-T4LH3cc&controls=0&rel=0&modestbranding=1&iv_load_policy=3"
                     allow="autoplay; encrypted-media"
                     allowfullscreen></iframe>
         </div>
-        <div class="filtro-oscuro"></div>
-        <div class="contenido-hero">
-            <h1>PORTAFOLIO<span>.</span></h1>
-            <p>Contenido audiovisual y fotografía con enfoque en la divulgación del conocimiento</p>
+        <div class="hero-content">
+            <h1 class="hero-title">Contenido Audiovisual & Divulgación</h1>
+            <p class="hero-subtitle">Transformando ideas complejas en narrativas visuales potentes para la comunicación científica y educativa</p>
         </div>
+        <div class="scroll-indicator"></div>
     </section>
 
     <section id="proyectos">
-        <h2 class="titulo-seccion">Proyectos destacados</h2>
-        <div class="grid-proyectos">
-            <div class="tarjeta-proyecto">
-                <div class="video-responsive">
-                    <iframe src="https://www.youtube.com/embed/BrDQabOUr4E" allowfullscreen></iframe>
+        <h2 class="section-title">Proyectos destacados</h2>
+        <div class="proyectos-grid">
+            <article class="proyecto-card">
+                <div class="proyecto-video">
+                    <iframe src="https://www.youtube.com/embed/BrDQabOUr4E" allowfullscreen title="Teoría de Lycal Radio"></iframe>
                 </div>
                 <div class="proyecto-info">
-                    <h3>Teoría de Lycal Radio</h3>
-                    <p>Dirección, locución y montaje audiovisual del podcast La Teoría de Lycal Radio.</p>
+                    <h3 class="proyecto-title">Teoría de Lycal Radio</h3>
+                    <p class="proyecto-descripcion">Dirección, locución y montaje audiovisual del podcast La Teoría de Lycal Radio, espacio de conversación sobre el desarrollo científico tecnológico de la Universidad de La Serena, emitido en la Radio Userena y @divulgacionuserena en YouTube.</p>
                 </div>
-            </div>
-            <div class="tarjeta-proyecto">
-                <div class="video-responsive">
-                    <iframe src="https://www.youtube.com/embed/2t5Kt0qk4ow" allowfullscreen></iframe>
-                </div>
-                <div class="proyecto-info">
-                    <h3>Soli, la cazadora del desierto</h3>
-                    <p>Locución y montaje audiovisual del audiolibro.</p>
-                </div>
-            </div>
-            <div class="tarjeta-proyecto">
-                <div class="video-responsive">
-                    <iframe src="https://www.youtube.com/embed/A7o6tiGTN14" allowfullscreen></iframe>
+            </article>
+
+            <article class="proyecto-card">
+                <div class="proyecto-video">
+                    <iframe src="https://www.youtube.com/embed/2t5Kt0qk4ow" allowfullscreen title="Soli, la cazadora del desierto"></iframe>
                 </div>
                 <div class="proyecto-info">
-                    <h3>Nivel Curioso CL</h3>
-                    <p>Creadora del canal de datos curiosos con enfoque en la divulgación del conocimiento.</p>
+                    <h3 class="proyecto-title">Soli, la cazadora del desierto</h3>
+                    <p class="proyecto-descripcion">Locución y montaje audiovisual del audiolibro.</p>
                 </div>
-            </div>
+            </article>
+
+            <article class="proyecto-card">
+                <div class="proyecto-video">
+                    <iframe src="https://www.youtube.com/embed/A7o6tiGTN14" allowfullscreen title="Nivel Curioso CL"></iframe>
+                </div>
+                <div class="proyecto-info">
+                    <h3 class="proyecto-title">Nivel Curioso CL</h3>
+                    <p class="proyecto-descripcion">Creadora del canal de datos curiosos con enfoque en la divulgación del conocimiento.</p>
+                </div>
+            </article>
         </div>
     </section>
 
     <section id="sobre-mi">
-        <h2 class="titulo-seccion">Sobre mí</h2>
-        <div class="contenedor-sobre-mi">
-            <div>
-                <p style="font-size: 1.2rem; font-weight: 300; margin-bottom: 15px;">Periodista y especialista en generación de contenidos audiovisuales.</p>
+        <h2 class="section-title">Sobre mí</h2>
+        <div class="sobre-mi-grid">
+            <div class="sobre-mi-text">
+                <p class="highlight">Periodista y especialista en generación de contenidos audiovisuales</p>
                 <p>Me dedico a la creación de contenido audiovisual y fotografía con un enfoque en la divulgación del conocimiento. Mi objetivo es transformar ideas y conceptos complejos en relatos narrativos visuales potentes y atractivos.</p>
-                <p style="margin-top: 18px;">Cuento con más de 10 años de experiencia en generación de contenidos audiovisuales para medios digitales. Manejo redacción periodística, comunicación científica, escritura creativa, guión audiovisual, locución, equipos audiovisuales y edición de video.</p>
-                <a href="/curriculum.pdf" target="_blank" class="btn-cv">Descargar Currículum (PDF)</a>
+                <p>Cuento con más de 10 años de experiencia en generación de contenidos audiovisuales para medios digitales. Manejo redacción periodística, comunicación científica, escritura creativa, guión audiovisual, locución, equipos audiovisuales y edición de video.</p>
+                <a href="/curriculum.pdf" target="_blank" class="btn-cv">
+                    <span>Descargar Currículum</span>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M8 12L8 4M8 12L5 9M8 12L11 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
             </div>
 
-            <div class="carrusel-sobre-mi">
-                <div class="slider-track">
-                    <div class="slide"><img src="/foto1.png" alt="Fotografía 1"></div>
-                    <div class="slide"><img src="/foto2.jpg" alt="Fotografía 2"></div>
-                    <div class="slide"><img src="/foto3.jpg" alt="Fotografía 3"></div>
-                    <div class="slide"><img src="/foto4.jpg" alt="Fotografía 4"></div>
-                    <div class="slide"><img src="/foto5.jpg" alt="Fotografía 5"></div>
-                    <div class="slide"><img src="/foto6.jpg" alt="Fotografía 6"></div>
-                </div>
+            <div class="profile-photo">
+                <img src="/foto1.png" alt="Yaritza Mondaca - Periodista y especialista en contenidos audiovisuales">
             </div>
         </div>
     </section>
 
     <section id="contacto">
-        <div class="footer-contacto">
-            <h2 class="titulo-seccion" style="color: white;">Contacto</h2>
-            <p style="font-size: 1.2rem; color: #fff; margin-bottom: 12px;">Yaritza Mondaca Rodríguez</p>
-            <p>Correo: <a href="mailto:ymondaca1@gmail.com">ymondaca1@gmail.com</a></p>
-            <p>Instagram: <a href="https://instagram.com/ymondaca_1" target="_blank">@ymondaca_1</a></p>
+        <div class="contacto-content">
+            <h2>Contacto</h2>
+            <p class="contacto-nombre">Yaritza Mondaca Rodríguez</p>
+            <div class="contacto-links">
+                <p class="contacto-link">Correo: <a href="mailto:ymondaca1@gmail.com">ymondaca1@gmail.com</a></p>
+                <p class="contacto-link">Instagram: <a href="https://instagram.com/ymondaca_1" target="_blank" rel="noopener noreferrer">@ymondaca_1</a></p>
+            </div>
+            <p class="footer-copyright">© 2026 Yaritza Mondaca. Todos los derechos reservados.</p>
         </div>
     </section>
+
+    <script>
+        // Header scroll effect
+        if (typeof window !== 'undefined') {
+            const header = document.getElementById('header');
+            
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 100) {
+                    header?.classList.add('scrolled');
+                } else {
+                    header?.classList.remove('scrolled');
+                }
+            });
+
+            // Smooth scroll con offset para header fijo
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = anchor.getAttribute('href');
+                    if (!targetId) return;
+                    
+                    const target = document.querySelector(targetId);
+                    if (target) {
+                        const headerHeight = header?.offsetHeight || 80;
+                        const targetPosition = target.offsetTop - headerHeight;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        }
+    </script>
 </body>
 </html>
